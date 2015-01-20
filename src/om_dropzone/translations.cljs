@@ -11,8 +11,10 @@
          :dictResponseError "Server responded with {{%s}} code."
          :dictCancelUpload "Cancel upload"
          :dictCancelUploadConfirmation "Are you sure you want to cancel this upload?"
-         :dictRemoveFileConfirmation ""
+         :dictRemoveFileConfirmation "Are you sure you want to delete this file?"
          :dictMaxFilesExceeded "You can not upload any more files."
+         :dictDefaultMessage "Drop files here to upload"
+         :dictRemoveFile "Remove file"
          :missing! "<Translation not found>"}
 
     :es {:dictFileTooBig "El archivo es muy grande ({{%s}}MiB). Tamaño máximo: {{%s}}MiB."
@@ -20,8 +22,10 @@
          :dictResponseError "El servidor respondió con el código {{%s}}."
          :dictCancelUpload "Cancelar carga de archivos"
          :dictCancelUploadConfirmation "¿Está seguro que desea cancelar la subida de archivos?"
-         :dictRemoveFileConfirmation ""
+         :dictRemoveFileConfirmation "¿Está seguro que desea borrar el archivo?"
+         :dictDefaultMessage "Arrastre aquí sus archivos para poder subirlos."
          :dictMaxFilesExceeded "No se pueden subir más archivos"
+         :dictRemoveFile "Borrar archivo"
          :missing! "<Traducción no encontrada>"}}})
 
 (defn _T
