@@ -12,3 +12,4 @@ pom.xml.asc
 /script/
 /repl
 /examples/basic/out
+examples/basic/main.js
