@@ -16,6 +16,20 @@ An [Om](https://github.com/swannodette/om) ([ClojureScript](https://github.com/c
 This is under development, use at your own risk :)
 
 
+## Usage
+
+You need to add dropzone js/css/ to your html (local or remote)
+
+```html
+<link href="css/dropzone.css" rel="stylesheet">
+<script type="text/javascript" src="js/dropzone.min.js"></script>
+```
+
+```html
+<link href="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.12.0/css/dropzone.css" rel="stylesheet">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/3.12.0/dropzone.min.js"></script>
+```
+
 ## Example
 
 ```bash
