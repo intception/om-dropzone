@@ -1,4 +1,4 @@
-(defproject om-dropzone "0.1"
+(defproject com.intception/om-dropzone "0.1.0-SNAPSHOT"
   :description "An Om (ClojureScript) dropzone component"
   :url "http://github.com/intception/om-dropzone"
   :license {:name "Eclipse"
