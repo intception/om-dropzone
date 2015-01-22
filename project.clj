@@ -13,8 +13,7 @@
                  [org.clojure/clojurescript "0.0-2356" :scope "provided"]
                  [om "0.7.1"]
                  [prismatic/schema "0.2.6"]
-                 [net.unit8/tower-cljs "0.1.0"]
-                 [intception-widgets "0.1.14-SNAPSHOT"]]
+                 [net.unit8/tower-cljs "0.1.0"]]
 
   :min-lein-version "2.0.0"
 

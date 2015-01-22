@@ -1,7 +1,6 @@
 (ns om-dropzone.core
   (:require [om.core :as om :include-macros true]
             [om.dom :as dom :include-macros true]
-            [intception-widgets.core :as w]
             [cljs.reader :as reader]
             [schema.core :as s]
             [om-dropzone.translations :refer [_T]]))
@@ -32,18 +31,20 @@
                                             (om/update-state! owner
                                                               :eids (fn [eids]
                                                                       (into #{} (remove #(= id %) eids))))
-                                            (w/om-update! cursor (fn [file-list]
-                                                                   (filter (fn [e] (not= (:id e) id )) file-list)))
+                                            (om/transact! cursor #(filter (fn [e]
+                                                                           (not= (:id e) id))
+                                                                         %))
                                             (when (:on-delete opts)
                                               ((:on-delete opts) id)))))
 
                                    (.on dropzone "success"
                                         (fn [f response]
                                           (let [file (reader/read-string response)]
+                                            ;; update dom node id
                                             (set! (.-id f) (:id file))
                                             (om/update-state! owner :eids (fn [eids]
                                                                             (conj eids (:id file))))
-                                            (w/om-update! cursor (fn [file-list] (conj file-list file)))
+                                            (om/transact! cursor #(conj % file))
                                             (when (:on-success opts)
                                               ((:on-success opts) (:id response))))))))}
 
@@ -116,7 +117,7 @@
                                                                 (conj s (:id file)))
                                                               s))
                                                           eids
-                                                          (w/om-get cursor))
+                                                          cursor)
                                             :dropzone dropzone}))))
     om/IRenderState
     (render-state [this state]
