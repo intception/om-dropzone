@@ -4,12 +4,11 @@ om-dropzone
 An [Om](https://github.com/swannodette/om) ([ClojureScript](https://github.com/clojure/clojurescript))
 [Dropzone](https://github.com/enyo/dropzone) component.
 
+[![Clojars Project](http://clojars.org/org.clojars.intception/om-dropzone/latest-version.svg)](http://clojars.org/org.clojars.intception/om-dropzone)
 
 ## TODOs
 
 * tests
-
-* clojars deploy
 
 ## Word of advice
 
