@@ -99,7 +99,7 @@
     om/IWillUnmount
       (will-unmount [_]
         (doto (om/get-state owner :dropzone)
-          (.off"removedfile")
+          (.off "removedfile")
           (.destroy)))
 
     om/IDidMount
