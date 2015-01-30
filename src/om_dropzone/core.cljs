@@ -96,6 +96,12 @@
     (will-mount [this]
                 (set! (.-autoDiscover js/Dropzone) false))
 
+    om/IWillUnmount
+      (will-unmount [_]
+        (doto (om/get-state owner :dropzone)
+          (.off"removedfile")
+          (.destroy)))
+
     om/IDidMount
     (did-mount [this]
                (let [eids (om/get-state owner :eids)
