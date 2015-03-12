@@ -31,9 +31,9 @@
                                             (om/update-state! owner
                                                               :eids (fn [eids]
                                                                       (into #{} (remove #(= id %) eids))))
-                                            (om/transact! cursor #(filter (fn [e]
+                                            (om/transact! (om/get-props owner) #(vec (filter (fn [e]
                                                                            (not= (:id e) id))
-                                                                         %))
+                                                                         %)))
                                             (when (:on-delete opts)
                                               ((:on-delete opts) id)))))
 
@@ -44,7 +44,7 @@
                                             (set! (.-id f) (:id file))
                                             (om/update-state! owner :eids (fn [eids]
                                                                             (conj eids (:id file))))
-                                            (om/transact! cursor #(conj % file))
+                                            (om/transact! (om/get-props owner) #(conj % file))
                                             (when (:on-success opts)
                                               ((:on-success opts) (:id response))))))))}
 
@@ -105,7 +105,7 @@
     om/IDidMount
     (did-mount [this]
                (let [eids (om/get-state owner :eids)
-                     dropzone (build-dropzone-instance cursor owner opts)]
+                     dropzone (build-dropzone-instance (om/get-props owner) owner opts)]
                  (om/update-state! owner (fn [_]
                                            {:eids (reduce (fn [s file]
                                                             (if-not (contains? s (:id file))
@@ -123,7 +123,7 @@
                                                                 (conj s (:id file)))
                                                               s))
                                                           eids
-                                                          cursor)
+                                                          (om/get-props owner))
                                             :dropzone dropzone}))))
     om/IRenderState
     (render-state [this state]
