@@ -37,6 +37,16 @@
                                             (when (:on-delete opts)
                                               ((:on-delete opts) id)))))
 
+                                   (when (fn? (:on-upload-progress opts))
+                                     (.on dropzone "uploadprogress"
+                                          (fn [file progress bytes-sent]
+                                            ((:on-upload-progress opts) file progress bytes-sent))))
+
+                                   (when (fn? (:on-processing opts))
+                                     (.on dropzone "processing"
+                                          (fn [file]
+                                            ((:on-processing opts) file))))
+
                                    (.on dropzone "success"
                                         (fn [f response]
                                           (let [file (reader/read-string response)]
