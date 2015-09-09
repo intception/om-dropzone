@@ -13,3 +13,5 @@ pom.xml.asc
 /repl
 /examples/basic/out
 examples/basic/main.js
+om_dropzone.iml
+.idea

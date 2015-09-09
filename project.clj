@@ -1,4 +1,4 @@
-(defproject org.clojars.intception/om-dropzone "0.1.3"
+(defproject org.clojars.intception/om-dropzone "0.1.4"
   :description "An Om (ClojureScript) dropzone component"
   :url "http://github.com/intception/om-dropzone"
   :license {:name "Eclipse"
@@ -12,6 +12,7 @@
                  [org.clojure/core.async "0.1.319.0-6b1aca-alpha"]
                  [org.clojure/clojurescript "0.0-2356" :scope "provided"]
                  [om "0.7.1"]
+                 [sablono "0.2.22"]
                  [prismatic/schema "0.2.6"]
                  [net.unit8/tower-cljs "0.1.0"]]
 
