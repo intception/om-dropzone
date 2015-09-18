@@ -142,11 +142,12 @@
                                                        (.options.addedfile.call dropzone
                                                                                 dropzone
                                                                                 mock-file)
-                                                       (.options.thumbnail.call dropzone
-                                                                                dropzone
-                                                                                mock-file
-                                                                                (str (:thumbnail-url opts)
-                                                                                     (:id file)))
+                                                       (when (:thumbnail-url opts)
+                                                         (.options.thumbnail.call dropzone
+                                                                                  dropzone
+                                                                                  mock-file
+                                                                                  (str (:thumbnail-url opts)
+                                                                                       (:id file))))
                                                        (conj s (:id file)))
                                                      s))
                                                  eids
