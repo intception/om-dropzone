@@ -54,6 +54,11 @@
                                    (fn [file]
                                      ((:on-processing opts) file))))
 
+                            (when (:on-error opts)
+                              (.on dropzone "error"
+                                   (fn [file errorMessage]
+                                     ((:on-error opts) file errorMessage))))
+
                             (.on dropzone "success"
                                  (fn [file response]
                                    (let [file (reader/read-string response)]
@@ -62,8 +67,9 @@
                                      (om/update-state! owner :eids (fn [eids]
                                                                      (conj eids (:id file))))
                                      (om/transact! (om/get-props owner) #(conj % file))
+
                                      (when (:on-success opts)
-                                       ((:on-success opts) (:id response))))))))}
+                                       ((:on-success opts) file response)))))))}
 
                  (merge (when (:accepted-files opts)
                           {:acceptedFiles (:accepted-files opts)}))
