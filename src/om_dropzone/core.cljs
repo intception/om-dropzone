@@ -80,6 +80,12 @@
                  (merge (when (:max-files opts)
                           {:maxFiles (:max-files opts)}))
 
+                 (merge (when (:max-file-size opts)
+                          {:maxFilesize (:max-file-size opts)}))
+
+                 (merge (when (:max-thumbnail-file-size opts)
+                          {:maxThumbnailFileSize (:max-thumbnail-file-size opts)}))
+
                  (merge (when (:upload-multiple opts)
                           {:uploadMultiple (:upload-multiple opts)}))
 
@@ -102,6 +108,8 @@
    (s/optional-key :on-delete) (s/pred fn?)
    (s/optional-key :lang) (s/enum :en :es)
    (s/optional-key :max-files) s/Int
+   (s/optional-key :max-file-size) s/Int
+   (s/optional-key :max-thumbnail-file-size) s/Int
    (s/optional-key :parallel-uploads) s/Int
    (s/optional-key :upload-multiple) s/Bool
    (s/optional-key :clickable) s/Str           ;; CSS selector to make a button an uploader
@@ -111,11 +119,9 @@
 ;; ---------------------------------------------------------------------
 ;; Public
 
-(defn dropzone [cursor owner opts]
+(defn dropzone
+  [cursor owner opts]
   (reify
-    om/IDisplayName
-    (display-name[_] "Dropzone")
-
     om/IInitState
     (init-state [this]
       {:eids #{}})
