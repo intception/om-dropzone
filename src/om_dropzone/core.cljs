@@ -31,6 +31,11 @@
                                  (fn [file]
                                    (when (fn? (:on-added-file opts))
                                      ((:on-added-file opts) file))))
+                            (.on dropzone "sending"
+                                 (fn [file xhr form-data]
+                                   (when (fn? (:on-sending opts))
+                                     ((:on-sending opts) file xhr form-data))))
+
 
                             (.on dropzone "removedfile"
                                  (fn [file]
