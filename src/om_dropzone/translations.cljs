@@ -6,7 +6,7 @@
   {:dev-mode? false
    :fallback-locale :en
    :dictionary
-   {:en {:dictFileTooBig "File is too big ({{filesize}}MiB). Max filesize: {{maxFilesize}}MiB."
+   {:en {:dictFileTooBig "File size ({{filesize}}MiB) is above the system's configured limit of {{maxFilesize}}MiB."
          :dictInvalidFileType "You can't upload files of this type."
          :dictResponseError "Server responded with {{statusCode}} code."
          :dictCancelUpload "Cancel upload"
@@ -17,7 +17,7 @@
          :dictRemoveFile "Remove file"
          :missing! "<Translation not found>"}
 
-    :es {:dictFileTooBig "El archivo es muy grande ({{filesize}}MiB). Tamaño máximo: {{maxFilesize}}MiB."
+    :es {:dictFileTooBig "El tamaño del archivo ({{filesize}}MiB) sobrepasa el limite de {{maxFilesize}}MiB configurado."
          :dictInvalidFileType "El tipo de archivo subido no es soportado"
          :dictResponseError "El servidor respondió con el código {{statusCode}}."
          :dictCancelUpload "Cancelar carga de archivos"
